@@ -1,0 +1,29 @@
+
+.container {
+  background-color: grey;
+  margin: 30px;
+  align-content: center;
+}
+
+div.col-md-12{
+
+}
+
+.table {
+  height: 500px;
+  width: 100%;
+  background-color: green;
+  border-radius: 10%;
+  border: 5px solid black;
+  position: relative;
+}
+
+.tableButtons {
+  position: absolute;
+  bottom: 5px;
+
+}
+
+div.test{
+  background-color: pink;
+}
