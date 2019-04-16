@@ -1,5 +1,10 @@
 
+body {
+  position: relative;
+}
+
 .container {
+  position: absolute;
   background-color: grey;
   margin: 30px;
   align-content: center;
@@ -18,12 +23,30 @@ div.col-md-12{
   position: relative;
 }
 
+.tableRow {
+background-color: pink;
+height: 29%;
+width: 86%;
+border: 3px solid black;
+margin-left: 7%;
+margin-top: 1%;
+}
+
+.cardSpace {
+border: 3px solid black;
+height: 29%;
+width: 15%;
+
+}
+
 .tableButtons {
   position: absolute;
   bottom: 5px;
+  width: 84%;
+  margin-left: 7%;
 
 }
-
-div.test{
-  background-color: pink;
-}
+ img{
+   width: 100%;
+   height: auto;
+ }

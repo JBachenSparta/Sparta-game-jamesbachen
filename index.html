@@ -2,8 +2,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <script type="text/javascript" src="js/main.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script
+src="https://code.jquery.com/jquery-3.4.0.min.js"
+integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/main.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <title></title>
   </head>
@@ -23,22 +27,49 @@
           <div class="table">
 
 
-          <div class="row tablePlay">
-            <div class="<col-sm-10 col-sm-offset-1 test>"> play
+          <div class="row tableRow dealerPlay">
+            <div class="col-sm-10 col-sm-offset-1 test">
+              <div class="col-sm-2 dealerCardSpace cardSpace">  test </div>
+              <div class="col-sm-2 dealerCardSpace cardSpace">  test </div>
+              <div class="col-sm-2 dealerCardSpace cardSpace">  test </div>
+              <div class="col-sm-2 dealerCardSpace cardSpace">  test </div>
+              <div class="col-sm-2 dealerCardSpace cardSpace">  test </div>
+              <div class="col-sm-2 dealerCardSpace cardSpace">  test </div>
+              Dealer
             </div>
 
            </div>
+
+           <div class="row tableRow moneyPot">
+             <div class="col-sm-10 col-sm-offset-1 test"> pot
+             </div>
+
+            </div>
+
+            <div class="row tableRow userPlay">
+              <div class="col-sm-10 col-sm-offset-1 test"> play
+                <div class="col-sm-2 userCardSpace0 cardSpace">  test </div>
+                <div class="col-sm-2 userCardSpace1 cardSpace">  test </div>
+                <div class="col-sm-2 userCardSpace2 cardSpace">  test </div>
+                <div class="col-sm-2 userCardSpace3 cardSpace">  test </div>
+                <div class="col-sm-2 userCardSpace4 cardSpace">  test </div>
+                <div class="col-sm-2 userCardSpace5 cardSpace">  test </div>
+              </div>
+
+             </div>
 
 
 
           <div class="row tableButtons">
             <button type="button" class="betButton btn btn-primary" name="buttonBet">Bet</button>
 
-            <button type="button" class="btn btn-primary" name="buttonStay">Stay</button>
+            <button type="button" class="stayButton btn btn-primary" name="buttonStay">Stay</button>
 
-            <button type="button"class="btn btn-primary" name="buttonHit">Hit</button>
+            <button type="button"class="hitButton btn btn-primary" name="buttonHit">Hit</button>
 
-            <button type="button" class="btn btn-primary" name="buttonDoubleDown">DoubleDown</button>
+            <button type="button" class="dealerButton btn btn-primary" name="buttonBet">Test dealer</button>
+
+            <button type="button" class="doubleDownButton btn btn-primary" name="buttonDoubleDown">DoubleDown</button>
 
 
            </div>
