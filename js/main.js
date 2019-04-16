@@ -91,12 +91,13 @@ function userCards () {
 }
 
 function dealerCards () {
+
+
   var completeSplitCard = [];
   completeSplitCard = cardValues (completeSplitCard);
   dealtDealerCards.push(completeSplitCard);
   blackJackDealerTotal += parseInt(completeSplitCard[0]);
 
-  console.log(completeSplitCard[2]);
   console.log(blackJackDealerTotal);
 }
 
@@ -104,8 +105,18 @@ function dealerCards () {
 
 
 function automateDealer () {
+
   while (blackJackDealerTotal <= 16){
     dealerCards();
+    var test = [];
+    test = dealtDealerCards
+
+    console.log(test[dealerHitCount][1]);
+    console.log(dealerHitCount);
+
+  // $('<img src="images/' + dealtDealerCards[hitCount][1] + dealtDealerCards[hitCount][2] + '.png">').appendTo(".dealerCardSpace"+hitCount);
+  $('<img src="images/' + dealtDealerCards[dealerHitCount][1] + dealtDealerCards[dealerHitCount][2] + '.png">').appendTo(".dealerCardSpace"+dealerHitCount);
+  dealerHitCount++;
 
   }
 
@@ -118,10 +129,23 @@ function automateDealer () {
       // console.log(blackJackDealerTotal);
   }
   else  {
+    blackJackDealerTotal = 0
     console.log("Dealer is bust");
-      // console.log(blackJackDealerTotal);
+  // console.log(blackJackDealerTotal);
   }
+  console.log(blackJackDealerTotal);
+  score ();
+}
 
+function score (){
+  if (blackJackUserTotal == blackJackDealerTotal) {
+    console.log("Draw");
+  } else if (blackJackUserTotal > blackJackDealerTotal ) {
+    console.log("User wins");
+
+  } else {
+    console.log("Dealer wins");
+  }
 }
 
 
@@ -129,6 +153,7 @@ var deck1 = new Deck();
 var dealtUserCards = [];
 var dealtDealerCards = [];
 var hitCount = 0;
+var dealerHitCount = 0;
 var blackJackUserTotal = 0;
 var blackJackDealerTotal = 0
 
@@ -151,28 +176,37 @@ $(".hitButton").on("click", function (){
   hitCount++;
 
   if (blackJackUserTotal == 21) {
+    automateDealer();
     console.log("BlackJack");
   }
 
   else if (blackJackUserTotal > 21){
     console.log("Bust");
+    blackJackUserTotal = false;
     automateDealer();
 
   }
   else {
     console.log("Play on ");
   }
-
 });
-
-$(".dealerButton").on("click", function (){
-  dealerCards();
-});
-
 
 $(".stayButton").on("click", function (){
   automateDealer();
-});
+})
+
+
+
+
+
+// $(".dealerButton").on("click", function (){
+//   dealerCards();
+// });
+//
+//
+// $(".stayButton").on("click", function (){
+//   automateDealer();
+// });
 
 
 
