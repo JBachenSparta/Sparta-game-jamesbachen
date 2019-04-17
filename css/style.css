@@ -1,6 +1,7 @@
 
 body {
   position: relative;
+  color: white;
 }
 
 .container {
@@ -8,14 +9,20 @@ body {
   background-color: grey;
   margin: 30px;
   align-content: center;
+  width: 750px
 }
 
 div.col-md-12{
 
 }
 
+span{
+  display: inline-block;
+  margin-left: 10px;
+}
+
 .table {
-  height: 500px;
+  height: 600px;
   width: 100%;
   background-color: green;
   border-radius: 10%;
@@ -24,12 +31,34 @@ div.col-md-12{
 }
 
 .tableRow {
-background-color: pink;
-height: 29%;
+/* background-color: pink; */
+height: 27%;
 width: 86%;
-border: 3px solid black;
+/* border: 3px solid black; */
 margin-left: 7%;
-margin-top: 1%;
+margin-top: 3%;
+}
+
+.moneyPot {
+  height: 20%;
+  /* background-color: purple */
+}
+
+.userCommands{
+  text-align: center;
+
+}
+
+
+
+.userPlay{
+  /* background-color: pink; */
+
+}
+
+.userScore{
+
+padding-bottom: 0%;
 }
 
 .cardSpace {
@@ -38,14 +67,26 @@ width: 20%;
 
 }
 
-.tableButtons {
+.tableButtons  {
   position: absolute;
   bottom: 5px;
   width: 84%;
-  margin-left: 7%;
-
+  margin-left: 12%;
+  /* background-color: grey; */
+  color: white;
+  /* margin-bottom: 7px; */
 }
+
+/* .betTableButtons {
+  bottom: 5px;
+  width: 84%;
+  margin-left: 12%;
+
+  color: white;
+} */
+
+
  img{
-   width: 100%;
+   width: 80%;
    height: auto;
  }
