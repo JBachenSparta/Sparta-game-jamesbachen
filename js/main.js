@@ -135,6 +135,7 @@ $(function (){
 
       console.log("Draw");
       money += (bet/2);
+
       $('.money').html(money)
 
     } else if (blackJackUserTotal > blackJackDealerTotal ) {
@@ -147,6 +148,7 @@ $(function (){
       money = money;
       $('.money').html(money)
     }
+    $('.newGameButton').prop('disabled', false);
 
   }
 
@@ -212,6 +214,7 @@ $(function (){
     bet = 5
   })
   $(".doubleDownButton").on("click", function (){
+    $('.doubleDownButton').prop('disabled', true);
     betting();
     bet += bet;
     $('.money').html(money)
@@ -223,10 +226,12 @@ function betting (){
     $('.userCommands').show();
     $('.userCommands').html("don't have enough money to make that bet");
     setTimeout(function(){ $('.userCommands').hide(); }, 1000);
+
   }
   else (
     money += (-bet)
   )
+
 
 }
 
@@ -236,13 +241,12 @@ function moneyTrack (){
   if (money < 0) {
     $('.userCommands').show();
     $('.userCommands').html("You've lost!!!");
+    $('.money').html(money);
     setTimeout(function(){ $('.userCommands').html("Would you like to play again??"); }, 1000);
-
-
-
   }
-  if (money > 130) {
+  if (money > 200) {
     $('.userCommands').show();
+    $('.money').html(money);
     $('.userCommands').html("Congrats you beat the dealer");
   }
 }
@@ -291,7 +295,6 @@ function moneyTrack (){
     $('.playingButtons').hide();
     $('.dealerScore').hide();
     $('.userScore').hide();
-
   }
 
 //// first function called, sets up page
@@ -309,21 +312,24 @@ function moneyTrack (){
   pageLoad();
 
   $(".betButton").on("click", function (){
-    moneyTrack ();
 
+    betting ();
     $('.dealerScore').show();
     $('.userScore').show();
 
     $('.bettingButtons').hide();
     //delay apperance of buttons so cards can be dealt, cards dealt also delayed each second.
+    $('.newGameButton').prop('disabled', true);
     $('.playingButtons').show();
     $('.userCommands').hide();
     //money += (-bet);
     $('.money').html(money);
+
     setup();
 
 
   })
+
   $(".newGameButton").on("click", function (){
     newGame();
   })
