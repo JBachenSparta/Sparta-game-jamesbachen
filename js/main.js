@@ -132,6 +132,7 @@ $(function (){
 
   function score (){
     if (blackJackUserTotal == blackJackDealerTotal) {
+
       console.log("Draw");
       money += (bet/2);
       $('.money').html(money)
@@ -197,6 +198,7 @@ $(function (){
 //
 // })
 
+////////  Setting bet values to buttons
   $(".betButton40").on("click", function (){
     bet = 40
   })
@@ -210,26 +212,42 @@ $(function (){
     bet = 5
   })
   $(".doubleDownButton").on("click", function (){
-    money += -bet;
+    betting();
     bet += bet;
     $('.money').html(money)
   })
 
 
-  $(".betButton").on("click", function (){
-    money += (-bet);
+function betting (){
+  if ((money - bet) < -10) {
+    $('.userCommands').show();
+    $('.userCommands').html("don't have enough money to make that bet");
+    setTimeout(function(){ $('.userCommands').hide(); }, 1000);
+  }
+  else (
+    money += (-bet)
+  )
 
-    $('.money').html(money)
-    console.log(money);
-    if (money < 0) {
-      console.log("Looser")
-    }
-    if (money > 130) {
-      console.log("Congrats you beat the dealer");
+}
 
-    }
+////////
+function moneyTrack (){
 
-  })
+  if (money < 0) {
+    $('.userCommands').show();
+    $('.userCommands').html("You've lost!!!");
+    setTimeout(function(){ $('.userCommands').html("Would you like to play again??"); }, 1000);
+
+
+
+  }
+  if (money > 130) {
+    $('.userCommands').show();
+    $('.userCommands').html("Congrats you beat the dealer");
+  }
+}
+
+//////  functionallity of game, increments hit count
 
   $(".hitButton").on("click", function (){
 
@@ -252,42 +270,31 @@ $(function (){
     }
   });
 
+//////  functionallity of game, automates dealer on stay button click
   $(".stayButton").on("click", function (){
     automateDealer();
   })
 
+////// sets new game
+  function newGame(){
+    dealtUserCards = [];
+    dealtDealerCards = [];
+    hitCount = 0;
+    dealerHitCount = 0;
+    blackJackUserTotal = 0;
+    blackJackDealerTotal = 0;
+    $('img').remove('img');
+    $('.money').html(money);
+    $('.userCommands').show();
+    $('.userCommands').html("PLACE YOUR BETS!!");
+    $('.bettingButtons').show();
+    $('.playingButtons').hide();
+    $('.dealerScore').hide();
+    $('.userScore').hide();
 
-  // $(".newGameButton").on("click", function (){
-  //
-  //   dealtUserCards = [];
-  //   dealtDealerCards = [];
-  //   hitCount = 0;
-  //   dealerHitCount = 0;
-  //   blackJackUserTotal = 0;
-  //   blackJackDealerTotal = 0;
-  //   $('img').remove('img');
-  //   setup();
-  //
-  // })
+  }
 
-function newGame(){
-  dealtUserCards = [];
-  dealtDealerCards = [];
-  hitCount = 0;
-  dealerHitCount = 0;
-  blackJackUserTotal = 0;
-  blackJackDealerTotal = 0;
-  $('img').remove('img');
-  $('.money').html(money);
-  $('.userCommands').show();
-  $('.userCommands').html("PLACE YOUR BETS!!");
-  $('.bettingButtons').show();
-  $('.playingButtons').hide();
-
-
-}
-
-
+//// first function called, sets up page
   function pageLoad (){
     betStartUp();
     $('.money').html(money);
@@ -296,22 +303,30 @@ function newGame(){
 
   }
 
+
+
+///// order of events and functions
   pageLoad();
 
   $(".betButton").on("click", function (){
+    moneyTrack ();
+
+    $('.dealerScore').show();
+    $('.userScore').show();
 
     $('.bettingButtons').hide();
     //delay apperance of buttons so cards can be dealt, cards dealt also delayed each second.
     $('.playingButtons').show();
     $('.userCommands').hide();
+    //money += (-bet);
+    $('.money').html(money);
     setup();
-
-    $(".newGameButton").on("click", function (){
-      newGame();
-    })
-
 
 
   })
+  $(".newGameButton").on("click", function (){
+    newGame();
+  })
+
 
 })
