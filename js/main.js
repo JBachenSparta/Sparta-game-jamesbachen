@@ -1,4 +1,6 @@
 $(function (){
+
+  //object to create deck
   class Deck{
   constructor(){
     this.deck = [];
@@ -6,6 +8,7 @@ $(function (){
     this.shuffle();
   }
 
+//function to reset deck
   reset(){
     this.deck = [];
 
@@ -18,7 +21,7 @@ $(function (){
       }
     }
   }
-
+//function to shuffle deck
   shuffle(){
     const { deck } = this;
     let m = deck.length, i;
@@ -31,13 +34,13 @@ $(function (){
 
     return this;
   }
-
+//function to deal a card from deck
   deal(){
     return this.deck.shift();
   }
-}
+  }
 
-
+//calculates the value of the card drawn in three catagories, the blackJack value, the the real card value, and the suit
   function cardValues (completeSplitCard){
 
     splitDealtCard = deck1.deal().split(" ");
@@ -73,6 +76,7 @@ $(function (){
 
   }
 
+//displays users cards
   function userCards () {
     var completeSplitCard = [];
 
@@ -80,26 +84,15 @@ $(function (){
     dealtUserCards.push(completeSplitCard);
     blackJackUserTotal +=  parseInt(completeSplitCard[0]);
 
-    console.log(completeSplitCard);
-
-  setTimeout(function () {
-    console.log("Helo");
-  }, 1000);
-
-
     $('<img src="images/' + dealtUserCards[hitCount][1] + dealtUserCards[hitCount][2] + '.png"> ').attr('alt', 'image').appendTo(".userCardSpace"+hitCount).fadeIn(200).delay(200);
 
     hitCount++;
 
-
-
-
     $('.userScore').html('User Score: ' + blackJackUserTotal)
-
-
 
   }
 
+//displays dealers cards
   function dealerCards () {
 
 
@@ -108,41 +101,39 @@ $(function (){
     dealtDealerCards.push(completeSplitCard);
     blackJackDealerTotal += parseInt(completeSplitCard[0]);
 
-    //console.log(blackJackDealerTotal);
 
     $('<img src="images/' + dealtDealerCards[dealerHitCount][1] + dealtDealerCards[dealerHitCount][2] + '.png">').appendTo(".dealerCardSpace"+dealerHitCount);
     dealerHitCount++;
     $('.dealerScore').html('Dealer Score: ' + blackJackDealerTotal)
   }
 
+//dealer draws cards
   function automateDealer () {
 
     $('#card-back').remove();
-    console.log(blackJackDealerTotal);
-//dealer will request another card if total is less than or equal to 16 and the total is less than the users.
+
+    //dealer will request another card if total is less than or equal to 16 and the total is less than the users.
     while (blackJackDealerTotal <= 16 && blackJackDealerTotal < blackJackUserTotal){
-      console.log(blackJackDealerTotal);
       dealerCards();
     }
 
     if (blackJackDealerTotal > 21) {
-      console.log("Dealer bust");
       blackJackDealerTotal = 0;
     }
 
     else if (blackJackDealerTotal == 21) {
-      console.log("Black Jack");
     }
 
     else  {
-      console.log("Dealer Stays");
     }
-
     score();
   }
 
+//idnetifies winner of each round
   function score (){
     $('.userCommands').show();
+    $('.hitButton').prop('disabled', true);
+    $('.stayButton').prop('disabled', true);
     if (blackJackUserTotal == blackJackDealerTotal) {
       $('.userCommands').html("Draw");
       pot += (bet * 2)
@@ -164,6 +155,7 @@ $(function (){
 
   }
 
+//calls the setup for each new match
   function setup (){
     deck1.reset();
     deck1.shuffle();
@@ -174,25 +166,23 @@ $(function (){
     $('.dealerScore').show();
     $('.userScore').show();
     $('.bettingButtons').hide();
-    //delay apperance of buttons so cards can be dealt, cards dealt also delayed each second.
     $('.newGameButton').prop('disabled', true);
     $('.playingButtons').show();
     $('.userCommands').hide();
-    //money += (-bet);
+
     $('.money').html(money);
 
-
-    console.log(blackJackUserTotal);
-    console.log(blackJackDealerTotal);
     $('<img src="images/CardBack.png" id=card-back>').appendTo(".dealerCardSpace"+dealerHitCount);
   }
 
+//sets initial amount of money given to user
   function betStartUp (){
     money = 100;
     //cover page that when pressed begins game and activates this function
       $('.money').html(money)
   }
 
+// validates if user has enough money for bet selected
   function betting (){
     if ((money - bet) <= -10) {
       $('.userCommands').show();
@@ -207,6 +197,7 @@ $(function (){
     }
 }
 
+//allows users to double down on their bets
   function doubleDownBet (){
     if ((money - bet) <= -10) {
       $('.userCommands').show();
@@ -221,6 +212,8 @@ $(function (){
     }
 }
 
+
+// calls game won or game lost function depending on total money left for user to bet with.
   function moneyTrack (){
 
   if (money <= 0) {
@@ -243,6 +236,8 @@ $(function (){
   return;
 }
 
+
+//functions gameWon and gameLost called to display if user has one or lost the game
   function gameLost() {
 
     $('.tableRow, .tableButtons').hide();
@@ -309,7 +304,7 @@ $(function (){
     }
 
 
-  ////// sets new game
+  ////// sets new game, calls and shuffles a new deck
   function newGame(){
 
     dealtUserCards = [];
@@ -318,16 +313,17 @@ $(function (){
     dealerHitCount = 0;
     blackJackUserTotal = 0;
     blackJackDealerTotal = 0;
+
     $('img').remove('img');
     $('.money').html(money);
-    // $('.userCommands').show();
     $('.userCommands').html("PLACE YOUR BETS!!");
     $('.bettingButtons').show();
     $('.playingButtons').hide();
     $('.dealerScore').hide();
     $('.userScore').hide();
     $('.doubleDownButton').prop('disabled', false);
-    console.log("pot = " + pot);
+    $('.hitButton').prop('disabled', false);
+    $('.stayButton').prop('disabled', false);
 
   }
 
@@ -344,32 +340,15 @@ $(function (){
 
   }
 
-
-
-
-  function enableLoop() {
-    x.loop = true;
-
-  }
-
-  function playAudio() {
-    x.play();
-    x.load();
-  }
-
+//Shows instruction text and hides all other tags
   function instructions (){
     $('.tableRow, .tableButtons').hide();
     $('.finalScreen').hide();
     $('.instructions').show();
-    playAudio();
-    enableLoop();
-
 
   }
 
 
-
-  var x = document.getElementById("myAudio");
   var deck1 = new Deck();
   var dealtUserCards = [];
   var dealtDealerCards = [];
@@ -406,11 +385,9 @@ $(function (){
   $(".hitButton").on("click", function (){
 
     userCards();
-    console.log(blackJackUserTotal);
-
 
     if (blackJackUserTotal > 21){
-      console.log("Bust");
+
       $('.userCommands').show();
       $('.userCommands').html("You've gone bust");
       blackJackUserTotal = false;
@@ -419,21 +396,17 @@ $(function (){
 
     else if (blackJackUserTotal == 21) {
       automateDealer();
-      console.log("BlackJack");
     }
 
-    else {
-      console.log("Play on ");
-    }
   });
 
-//////  functionallity of game, automates dealer on stay button click
+////// functionallity of game, automates dealer on stay button click
   $(".stayButton").on("click", function (){
     automateDealer();
   })
 
 
-///// order of events and functions
+///// Initialising of events and functions
 
   instructions();
 
@@ -441,7 +414,9 @@ $(function (){
     pageLoad();
 
   })
+
   $(".betButton").on("click", function (){
+
     betting ();
   })
 
