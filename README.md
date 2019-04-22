@@ -1,118 +1,37 @@
-# Sparta-game-jamesbachen
+# Sparta-game-jamesbachen-BlackJack
 
 # Sparta Core Project 1
 
-Congratulation Spartans for making it through your first two weeks of training!
-
-To consolidate your learning, your task is to produce a project using any and all of the technology that you have learnt within the past two weeks.
-
->**You must successfully pass this project in order to graduate the Sparta Academy**
-
 ## Task
 
-Your mission, should you choose to accept it! Is to build a **browser based game!** Your game should be built using html, css and JavaScript!
+Buld a browser based game using html, css and JavaScript!
 
-**The choice of game is totally up to you however before you get to work, you must ensure you have had your project idea approved by one of your trainers.**
-
-Your game must:
+The game must:
 
 * Include an instruction section explaining how to play the game.
 * Ether display a message when the user has won or display the users score after the game has finished.
 * Be styled to perfection!
 * Be hosted online!
 
-**BONUS**
+## Comments
 
-* Your game could include a leaderboard.
-* Your game could be 2 player.
-* Your game could be played against the computer...
-* You could include some fancy animations in your game...
-* You could into HTML5 Audio and include some snazzy sound effects...
+## Black Jack
 
----
-**ReadMe**
-You MUST have a detailed readme.md file documenting the entire project including a section detailing how to get the app up and running.
+The Game I picked was blackJack, you play bet against the dealer and the hand that is closest to a blackJack value of 21 wins.  
 
-An example of a good project readme, written by Matt Calthrop (A previous Sparta Trainer) can be found here: https://github.com/mcalthrop/angular-spa-demo
+I began by planned out each of the necessary steps needed for the game to be able to run.  I needed be able to:
+- Create a deck of cards.
+- Shuffle the deck of cards.
+- To draw a card from the deck.
+- Apply a value to that card, for the black jack value, and also the values that would be displayed to the user.
+- Draw multiple cards from the deck and create a total value for that hand, or go bust. 
+- Draw the dealers hand automatically, and find a value for that.
+- Compare the user and dealers hand and determine a winner
+- Allow bets to be placed on each hand, and the total amount bet transfer to the winner or loser.  
 
-
----
-**Presentation**
-You will be required to prepare a small 5 minute presentation based around your project. This will be followed by a 5 minute Q&A.
-
-**We will be assessing you on the quality of your presentation, make sure you plan in time to prepare a high quality side deck.**
-
-## File Structure
-
-Make sure that you're file structure is setup appropriately. Separate out all your Javascript, Css and images into their own independent files. e.i.
-
-```
-+-- project-one
-|	+--js
-|		--main.js
-|	+--css
-|		--style.css
-|	+--images
-|	--index.html
-```
-
-## Project Objectives
-
-The objective of this project is to:
-
-* To pull everything together by building a small web application from the ground up.
-* To demonstrate mastery of topics covered during this course so far.
-* To demonstrate the quality of communication around your decision-making. Can you defend why you chose a certain technology or why you implemented your solution in a certain way?
-* Your ability to pick up new technologies, research, and push yourself.
-
-You will be working **individually** for this project! So show us what you've got!
-
-## Planning
-
-We strongly advise that you take the time to plan your project well. You should include all planning, wireframes, skatches etc in your presentation.
-
-#### Project Plan deliverables:
-
-* **Scope.** What are you planning to build? What features will it have? What do you think you can reasonably implement in the time period?
-
-* **Wireframes.** Sketch out what a few of your core pages will look like and how they will work and link between each other. Again, pen and aper works great. You can also check out wire framing software like Protoshare or Balsamic.
-
-* **Milestones.** We will give you some dates and milestones to help keep you on track. Outline some specific milestones for yourself based on how you prefer to work.
+By planning out the game as such, I could forestall and potential logical errors and code in a more DRY fashion.  By completing each of the steps as a function I was then able to reshuffle and re-deal the in one further function, which is a crucial part of the game.  
 
 
+I had some issues with the finer rules of the game, such as if the dealer and player had a draw the bet money would remain in the pot and be added to the next winners takings, and using the setTimeout function to stall events and give the game a greater flow.  These both could have been mitigated with greater planning whoever, which is what I shall endeavour to do on my next task.  
 
-## Things to keep in mind
-Make sure that your code and files are:
-
-* DRY.  Can I reuse parts of the code in different areas of the project?
-* Well-commented. Will anyone else quickly understand what is going on in your application?
-* Well-formatted. Write pretty code: indent properly, format consistently.
-* Fully git tracked with dev and master branches with your trainers added as collaborators with an acceptable amount of git comments.
-
-We’ll also be looking at:
-
-* How you work together as a team.
-* How you support yourself and each other to achieve a common goal.
-
-## Project Checklist
-| Task                                                                         | Complete? | Trainer Validated? |  
-|------------------------------------------------------------------------------|-----------|--------------------|
-| Instruction section                                                          |           |                    |  
-| Appropriate use of styling                                                   |           |                    |   
-| Game fully functional                                                        |           |                    |   
-| Implemented DRY Practices                                                    |           |                    |   
-| Proper HTML/JS/CSS Code Standards (Indentation, spacing, naming conventions) |           |                    |   
-| Good Quality Markdown                                                        |           |                    |   
-| Fully Git Tracked/Synced with Github                                         |           |                    |  
-| Fully prepared presentation.                                                 |           |                    |  
-
-
-
-### Resources
-* https://api.jquery.com/
-* http://jqfundamentals.com/
-* https://oscarotero.com/jquery/
-
-
-### And most importantly...
->**Have fun!**
+Further improvements to the game would be, incorporating all the logic of the game such as splitting hands, insurance and settling.  Finally it would be interesting to create a cheating dealer that would look at the value of the cards in the deck to come and hit or stay in accordance with that knowledge.  
