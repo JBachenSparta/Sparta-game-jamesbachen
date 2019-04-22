@@ -1,0 +1,107 @@
+
+body {
+  position: relative;
+  color: white;
+}
+
+
+.finalScreenButtones{
+  margin-top: 7%;
+}
+
+.instructions {
+  margin-top: 20%;
+}
+
+
+.container {
+  position: absolute;
+  background-color: grey;
+  margin: 30px;
+  align-content: center;
+  width: 750px
+}
+
+div.col-md-12{
+
+}
+
+span{
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.table {
+  height: 600px;
+  width: 100%;
+  background-color: green;
+  border-radius: 10%;
+  border: 5px solid black;
+  position: relative;
+}
+
+.tableRow {
+/* background-color: pink; */
+height: 27%;
+width: 86%;
+/* border: 3px solid black; */
+margin-left: 7%;
+margin-top: 3%;
+}
+
+.moneyPot {
+  height: 20%;
+  /* background-color: purple */
+}
+
+.userCommands{
+  text-align: center;
+
+}
+
+
+
+.userPlay{
+  /* background-color: pink; */
+
+}
+
+.userScore{
+
+padding-bottom: 0%;
+}
+
+.cardSpace {
+height: 20%;
+width: 16%;
+
+}
+
+.tableButtons  {
+  position: absolute;
+  bottom: 5px;
+  width: 84%;
+  margin-left: 12%;
+  /* background-color: grey; */
+  color: white;
+  /* margin-bottom: 7px; */
+}
+
+/* .betTableButtons {
+  bottom: 5px;
+  width: 84%;
+  margin-left: 12%;
+
+  color: white;
+} */
+
+
+ img{
+   width: 50px;
+   height: auto;
+ }
+
+ .userScore {
+   margin-top: 50px;
+   margin-bottom: 0px;
+ }

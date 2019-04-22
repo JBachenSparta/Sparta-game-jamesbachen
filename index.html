@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script
+src="https://code.jquery.com/jquery-3.4.0.min.js"
+integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title></title>
+  </head>
+  <body>
+
+  <audio autoplay="autoplay" id="myAudio">
+    <source  src="audio/chill-electronic-music.mp3" type="audio/mpeg">
+  </audio><br>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <h1>Black Jack</h1>
+        </div>
+
+        <div class="col-sm-6" class="score"></div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="table">
+
+            <div class="instructions text-center">
+              <h2>Welcome to Black Jack</h2>
+              <p>The aim of the game is to double your money by betting againt the dealers hand><br> - Your hand must not exceed 21 <br>- A hand of 21 is the highest value and is called Black Jack <br>- Face cards are worth 10 <br>- Ace is worth 11 <br> - All other cards are worth their numeric value <br>- You must place a bet before playing each hand <br>- Double Down, doubles your bet and can only be completed once <br>- Hit, requests and additional card <br>- Stay, keeps your hand and signifies the dealers turn <br>Good luck</p>
+
+              <button class ="instructionsButton screenButton btn btn-primary" type="button" name="button">Begin
+              </button>
+            </div>
+
+            <div class="finalScreen">
+
+              <h2 class="lost won text-center"></h2>
+
+              <div class="finalScreenButtones text-center">
+                <button class ="screenButton1 screenButton btn btn-danger" type="button" name="button">Borrow another 100
+                </button>
+                <button class ="screenButton2 screenButton btn btn-primary" type="button" name="button">No thanks</button>
+
+              </div>
+
+            </div>
+
+
+          <div class="row tableRow dealerPlay">
+            <div class="col-sm-12 col-sm-offset-0 test">
+              <div class="col-sm-2 dealerCardSpace0 cardSpace"></div>
+              <div class="col-sm-2 dealerCardSpace1 cardSpace"></div>
+              <div class="col-sm-2 dealerCardSpace2 cardSpace"></div>
+              <div class="col-sm-2 dealerCardSpace3 cardSpace"></div>
+              <div class="col-sm-2 dealerCardSpace4 cardSpace"></div>
+              <div class="col-sm-2 dealerCardSpace5 cardSpace"></div>
+
+            </div>
+
+            <div class="col-sm-12">
+              <div class="row">
+                <h3 class= "dealerScore"></h3>
+
+              </div>
+
+            </div>
+
+           </div>
+
+           <div class="row tableRow moneyPot">
+             <div class="col-sm-10 col-sm-offset-1 "><h2 class="userCommands"></h2>
+
+             </div>
+
+            </div>
+
+            <div class="row tableRow userPlay">
+              <div class="col-sm-12 col-sm-offset-0 test">
+                <div class="col-sm-2 userCardSpace0 cardSpace"></div>
+                <div class="col-sm-2 userCardSpace1 cardSpace"></div>
+                <div class="col-sm-2 userCardSpace2 cardSpace"></div>
+                <div class="col-sm-2 userCardSpace3 cardSpace"></div>
+                <div class="col-sm-2 userCardSpace4 cardSpace"></div>
+                <div class="col-sm-2 userCardSpace5 cardSpace"></div>
+              </div>
+              <div class="col-sm-12">
+                <div class="row">
+                  <h3 class="userScore"></h3>
+
+                </div>
+
+              </div>
+
+             </div>
+
+
+
+          <div class="row tableButtons">
+
+            <div class="btn-group bettingButtons" role="group" aria-label="...">
+              <button type="button" class="btn btn-warning betButton5 betButton">Bet 5</button>
+              <button type="button" class="btn btn-warning betButton10 betButton">Bet 10</button>
+              <button type="button" class="btn btn-warning betButton20 betButton">Bet 20</button>
+              <button type="button" class="btn btn-danger betButton40 betButton">Bet 40</button>
+              <span><h4>Money: <span><p class="money"></p></span></h4></span>
+            </div>
+          </div>
+
+          <div class="row tableButtons">
+
+            <div class="btn-group playingButtons" role="group" aria-label="...">
+              <button type="button" class="stayButton btn btn-primary" name="buttonStay">Stay</button>
+
+              <button type="button"class="hitButton btn btn-primary" name="buttonHit">Hit</button>
+
+              <button type="button" class="doubleDownButton btn btn-danger" name="buttonDoubleDown">DoubleDown</button>
+
+              <button type="button" class="newGameButton btn btn-primary" name="buttonNewGame">New Game</button>
+              <span><h4>Money: <span><p class="money"></p></span></h4></span>
+
+            </div>
+
+
+
+          </div>
+
+           </div>
+
+         </div>
+
+        </div>
+      </div>
+  </body>
+</html>
